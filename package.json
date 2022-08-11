@@ -1,0 +1,20 @@
+{
+  "name": "play-with-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashik19aug/play_with_node_and_mongo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashik19aug/play_with_node_and_mongo/issues"
+  },
+  "homepage": "https://github.com/Ashik19aug/play_with_node_and_mongo#readme"
+}
