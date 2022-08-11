@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Ashik19aug/play_with_node_and_mongo/issues"
   },
-  "homepage": "https://github.com/Ashik19aug/play_with_node_and_mongo#readme"
+  "homepage": "https://github.com/Ashik19aug/play_with_node_and_mongo#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
