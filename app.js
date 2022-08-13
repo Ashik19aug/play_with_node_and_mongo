@@ -10,10 +10,18 @@ const express = require('express');
 const app = express();
 
 const port = 2222;
-
+// normal get routes
 app.get('/', (req, res) => {
     myEvent.emit('first_event', {name: 'Amisha ayat'});
     res.send('Hello node app!');
+})
+// normal post routes
+app.post('/posts', (req, res) => {
+    res.json({data: "ashik 19aug"});
+})
+// dynamic routes
+app.use('/posts/:id', (req, res) => {
+    res.json({data: `ashik 19aug data : ${req.params.id}`});
 })
 
 app.listen(port,()=> {
