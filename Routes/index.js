@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const postRouter = require('./post/post')
-
+const postRouter = require('./post/post');
 
 // normal get routes
 router.get('/', (req, res) => {
-    res.send('Hello node app!');
+    res.render('index', {title: 'Play with node and mongo', message: 'Hey Lets Play with node and mongo'})
 })
 
 //use post routes
