@@ -24,6 +24,10 @@ app.use('/posts/:id', (req, res) => {
     res.json({data: `ashik 19aug data : ${req.params.id}`});
 })
 
+app.route("/authored")
+    .get((req, res) => {res.send('Welcome to nodejs.')})
+    .post((req, res) => {res.json({data: "dynamic routes post"})})
+
 app.listen(port,()=> {
     console.log(`Server running at http://127.0.0.1:${port}`);
 })
