@@ -1,3 +1,10 @@
+const EventEmitter = require('events');
+const myEvent = new EventEmitter();
+
+myEvent.on('first_event', (data) => {
+    console.log('first_event', data)
+})
+
 const express = require('express');
 
 const app = express();
@@ -5,11 +12,12 @@ const app = express();
 const port = 2222;
 
 app.get('/', (req, res) => {
+    myEvent.emit('first_event', {name: 'Amisha ayat'});
     res.send('Hello node app!');
 })
 
 app.listen(port,()=> {
-    console.log(`Server running at http://127.0.0.1: + ${port}`);
+    console.log(`Server running at http://127.0.0.1:${port}`);
 })
 
 // const http = require("http");
