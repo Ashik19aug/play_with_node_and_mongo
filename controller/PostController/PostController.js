@@ -1,10 +1,12 @@
 const connect = require('../../Database/Connection');
+const Post = require('../../Models/Posts/Post')
 const {ObjectID} = require("mongodb");
 
 exports.index = async (req, res) => {
     try {
-        const conn = await connect();
-        const posts = await conn.collection("post").find().toArray();
+        // const conn = await connect();
+        // const posts = await conn.collection("post").find().toArray();
+        const posts = await Post.find();
         res.json( posts);
     }
     catch(e) {
