@@ -14,13 +14,6 @@ router.use(postRouter);
 //use auth routes
 router.use(userRouter);
 
-//dynamic routes
-router.route("/authored")
-    .get((req, res) => {res.send('authored Welcome to nodejs.')})
-    .post((req, res) => {res.json({data: "authored dynamic routes post"})})
-
-
-
 //invalid routes
 router.use("/*", (req, res) => {
     res.send('404 Error Page Not Found');
