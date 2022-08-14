@@ -12,10 +12,12 @@ postRouter
         // res.send("get route for posts");
     })
     .post( async (req, res) => {
+        // console.log(req.body);
+        // res.json(req.body);
         const conn = await connect();
-        const data = {title: 'asd', description: 'mnb',};
-        await conn.collection('post').insertOne(data);
-        res.json({data: "post route for posts"});
+        // const data = {title: 'asd', description: 'mnb',};
+        await conn.collection('post').insertOne(req.body);
+        res.json({data: "A new post has been created."});
     });
 
 // dynamic routes
