@@ -1,8 +1,6 @@
 const express = require('express');
 const postRouter = express.Router();
-const PostController = require('../../controller/PostController/PostController')
-const connect = require('../../Database/Connection');
-const {ObjectID} = require("mongodb");
+const PostController = require('../../controller/PostController/PostController');
 
 // normal post routes
 postRouter
