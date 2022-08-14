@@ -21,3 +21,8 @@ create a views folder with an index.pug
 
 ### Data Manipulation
 ##### `npm i body-parser`
+
+### Create Controllers and Move functionlity from route to controller
+
+### install Mongoose
+##### `npm i mongoose`
