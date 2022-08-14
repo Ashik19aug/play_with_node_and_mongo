@@ -4,8 +4,6 @@ const {ObjectID} = require("mongodb");
 
 exports.index = async (req, res) => {
     try {
-        // const conn = await connect();
-        // const posts = await conn.collection("post").find().toArray();
         const posts = await Post.find();
         res.json( posts);
     }
@@ -16,20 +14,18 @@ exports.index = async (req, res) => {
 
 exports.createPost = async (req, res) => {
     try {
-        const conn = await connect();
-        await conn.collection('post').insertOne(req.body);
+        await Post.create(req.body);
         res.status(201).json({data: "A new post has been created."});
     }
-    catch(e) {
-        console.log('error: ' + e.message);
+    catch(error) {
+        res.json(error.message);
     }
 };
 
 exports.postDetails = async (req, res) => {
     try {
         const _id = ObjectID(req.params.id);
-        const conn = await connect();
-        const post = await conn.collection('post').findOne({ _id });
+        const post = await Post.find({_id});
         res.status(200).json(post);
     }
     catch(e) {
@@ -40,8 +36,7 @@ exports.postDetails = async (req, res) => {
 exports.updatePost = async (req, res) => {
     try {
         const _id = ObjectID(req.params.id);
-        const conn = await connect();
-        const updatePost = await conn.collection('post').updateOne({ _id }, {$set: req.body});
+        await Post.updateOne({ _id}, {$set : req.body});
         res.json({data: "Your Post has been updated successfully."});
     }
     catch(e) {
@@ -52,8 +47,7 @@ exports.updatePost = async (req, res) => {
 exports.deletePost = async (req, res) => {
     try {
         const _id = ObjectID(req.params.id);
-        const conn = await connect();
-        await conn.collection('post').deleteOne({ _id });
+        await Post.deleteOne({ _id});
         res.status(204).json({data: `The delete post id is : ${req.params.id}`});
     }
     catch(e) {
