@@ -1,6 +1,7 @@
 const express = require('express');
 const postRouter = express.Router();
 const connect = require('../../Database/Connection');
+const {ObjectID} = require("mongodb");
 
 // normal post routes
 postRouter
@@ -12,19 +13,19 @@ postRouter
         // res.send("get route for posts");
     })
     .post( async (req, res) => {
-        // console.log(req.body);
-        // res.json(req.body);
         const conn = await connect();
-        // const data = {title: 'asd', description: 'mnb',};
         await conn.collection('post').insertOne(req.body);
         res.json({data: "A new post has been created."});
     });
 
 // dynamic routes
 postRouter
-    .route('/:id')
-    .get((req, res) => {
-    res.json({data: `route for post no : ${req.params.id}`});
+    .route('/posts/:id')
+    .get(async (req, res) => {
+        const _id = ObjectID(req.params.id);
+        const conn = await connect();
+        const post = await conn.collection('post').findOne({ _id });
+        res.json(post);
     })
     .patch((req, res) => {
     res.json({data: `update route for post no : ${req.params.id}`});
