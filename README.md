@@ -8,3 +8,7 @@
 ##### for add view 
 run : npm install pug --save
 create a views folder with an index.pug 
+
+
+##### Database
+npm install mongodb
