@@ -6,8 +6,10 @@ const connect = require('../../Database/Connection');
 postRouter
     .route('/posts')
     .get( async (req, res) => {
-        const connect = await connect();
-        res.send("get route for posts");
+        const conn = await connect();
+        const posts = await conn.collection("post").find().toArray();
+        res.json( posts);
+        // res.send("get route for posts");
     })
     .post( async (req, res) => {
         const conn = await connect();

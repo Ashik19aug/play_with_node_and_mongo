@@ -10,5 +10,12 @@ run : npm install pug --save
 create a views folder with an index.pug 
 
 
-##### Database
-npm install mongodb
+### Database
+##### brew tap mongodb/brew
+##### brew install mongodb-community
+##### brew install mongosh
+##### brew install mongodb-database-tools
+
+### Use the MongoDB
+##### brew services start mongodb-community
+##### brew services stop mongodb-community
